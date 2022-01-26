@@ -1,0 +1,34 @@
+#include<reg51.h> // Preprocessor Directive
+void delay (int); // Delay Function Declaration
+
+void main(void) // Main Function
+{
+P1 = 0x00;
+/* Making PORT1 pins LOW. All the LEDs are OFF.
+ * (P1 is PORT1, as defined in reg51.h) */
+
+while(1) // infinite loop
+{
+P1 = 0xFF; // Making PORT1 Pins HIGH i.e. LEDs are ON.
+delay(1000);
+/* Calling Delay function with Function parameter as 1000.
+ * This will cause a delay of 1000mS i.e. 1 second */
+
+P1 = 0x00; // Making PORT1 Pins LOW i.e. LEDs are OFF.
+delay(1000);
+}
+}
+
+void delay (int d) // Delay Function Definition
+{
+unsigned int i=0; // Local Variable. Accessible only in this function.
+ 
+/* This following step is responsible for causing delay of 1000mS
+ * (or as per the value entered while calling the delay function) */
+
+for(; d>0; d–)
+{
+for(i=250; i>0; i – -);
+for(i=248; i>0; i – -);
+}
+}
